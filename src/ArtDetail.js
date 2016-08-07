@@ -11,14 +11,17 @@ class ArtDetail extends Component {
   componentDidMount() {
   	
     this.serverRequest = $.getJSON('https://www.rijksmuseum.nl/api/nl/collection/'+this.props.params.id+'/?key=hnQJ1CmI').done(function(data) {
-      var art = data.artObject;
+      let art = data.artObject;
+      let artImage = art.webImage;
       this.setState({data: art});
+      this.setState({imgData: artImage});
     }.bind(this));
   }
 
   constructor(props) {
     super(props);
     this.state = {data: props.initialArts};
+    this.state = {imgData: props.imgObject};
   }
   
 
@@ -28,15 +31,26 @@ class ArtDetail extends Component {
   }
 
   render() {
+
+    let divStyle = {
+      color: 'white',
+      backgroundImage: 'url(' + this.state.imgData.url + ')',
+      WebkitTransition: 'all', // note the capital 'W' here
+      msTransition: 'all', // 'ms' is the only lowercase vendor prefix
+      height: ''+(this.state.imgData.height / 4)+'px',
+      width: ''+(this.state.imgData.width / 4)+'px' 
+
+    };
     return (
-    <div className="test">
-      {this.state.data.title}
+    <div className="art-detailcontainer">  
+      <div className="art-detail" style={divStyle}>
+      </div>
     </div>
     );
     
   }
  
 }
-ArtDetail.defaultProps = { initialArts: {} };
+ArtDetail.defaultProps = { initialArts: {}, imgObject: {} };
 
 export default ArtDetail

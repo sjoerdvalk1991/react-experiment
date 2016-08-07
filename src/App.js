@@ -8,7 +8,11 @@ import logo from './logo.svg';
 import './App.css';
 import ArtOverview from './ArtOverview';
 import ArtDetail from './ArtDetail';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link, hashHistory } from 'react-router';
+import ReactDOM from 'react-dom';
+import Draggable from 'react-draggable';
+
+
 class App extends Component {
 
 
@@ -23,9 +27,8 @@ class App extends Component {
       <div>
         {this.props.children}
       </div>
+     
     );
-
-  
   }
 }
 
