@@ -1,7 +1,7 @@
 {
   "name": "react-experiment",
   "baseUrl": "sjoerdvalk1991.github.io/react-experiment/",
-  "homepage": "sjoerdvalk1991.github.io/react-experiment/",
+  "homepage": "/react-experiment/",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
